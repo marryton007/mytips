@@ -1,0 +1,74 @@
+diff --git a/.tmux.conf b/.tmux.conf
+index a9248e4..f625ea5 100644
+--- a/.tmux.conf
++++ b/.tmux.conf
+@@ -1,4 +1,4 @@
+-# cat << EOF > /dev/null
++# cat << EOF > /dev/null/
+ # https://github.com/gpakosz/.tmux
+ # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
+ #         without any warranty.
+@@ -13,7 +13,7 @@ set -g default-terminal "screen-256color" # colors!
+ setw -g xterm-keys on
+ set -s escape-time 10                     # faster command sequences
+ set -sg repeat-time 600                   # increase repeat timeout
+-set -s focus-events on
++# set -s focus-events on
+ 
+ set -g prefix2 C-a                        # GNU-Screen compatible prefix
+ bind C-a send-prefix -2
+@@ -44,13 +44,13 @@ set -g set-titles-string '#h ❐ #S ● #I #W'
+ set -g display-panes-time 800 # slightly longer pane indicators display time
+ set -g display-time 1000      # slightly longer status messages display time
+ 
+-set -g status-interval 10     # redraw status line every 10 seconds
++# set -g status-interval 10     # redraw status line every 10 seconds
+ 
+ # clear both screen and history
+ bind -n C-l send-keys C-l \; run 'sleep 0.1' \; clear-history
+ 
+ # activity
+-set -g monitor-activity on
++#set -g monitor-activity on
+ set -g visual-activity off
+ 
+ 
+@@ -91,18 +91,17 @@ bind -r C-h previous-window # select previous window
+ bind -r C-l next-window     # select next window
+ bind Tab last-window        # move to last active window
+ 
+-# toggle mouse
++## toggle mouse
+ bind m run "cut -c3- ~/.tmux.conf | sh -s _toggle_mouse"
+ 
+ 
+ # -- urlview -------------------------------------------------------------------
+-
+-bind U run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
++#bind U run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
+ 
+ 
+ # -- facebook pathpicker -------------------------------------------------------
+ 
+-bind F run "cut -c3- ~/.tmux.conf | sh -s _fpp #{pane_id}"
++#bind F run "cut -c3- ~/.tmux.conf | sh -s _fpp #{pane_id}"
+ 
+ 
+ # -- list choice (tmux < 2.4) --------------------------------------------------
+@@ -159,7 +158,6 @@ bind P choose-buffer # choose which buffer to paste from
+ 
+ 
+ # -- user defined overrides ----------------------------------------------------
+-
+ if '[ -f ~/.tmux.conf.local ]' 'source ~/.tmux.conf.local'
+ 
+ 
+@@ -219,7 +217,7 @@ run 'cut -c3- ~/.tmux.conf | sh -s _apply_configuration'
+ #   else
+ #     $restore || tmux kill-pane
+ #   fi
+-# }
++#}
+ #
+ # _toggle_mouse() {
+ #   old=$(tmux show -gv mouse)
